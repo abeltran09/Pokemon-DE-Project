@@ -16,3 +16,5 @@ airflow/logs/
 # Other common cache
 *.log
 *.sqlite
+
+.idea/
