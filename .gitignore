@@ -1,0 +1,18 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+env/
+venv/
+.env
+
+# Airflow logs
+airflow/logs/
+
+# Other common cache
+*.log
+*.sqlite
