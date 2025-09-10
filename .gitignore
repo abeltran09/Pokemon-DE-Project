@@ -18,3 +18,9 @@ airflow/logs/
 *.sqlite
 
 .idea/
+.vscode
+
+target/
+dbt_packages/
+logs/
+analyses/dbt_internal_packages/
