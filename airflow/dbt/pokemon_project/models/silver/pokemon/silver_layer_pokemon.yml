@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: silver_layer_pokemon__base
+    description: one unique pokemon per row
+    columns:
+      - name: pokemon_id
+        description: primary key
+        tests:
+          - unique
+          - not_null
+
+  - name: silver_layer_pokemon__stats
+    description: one unique pokemon per row
+    columns:
+      - name: pokemon_id
+        description: primary_key
+          - unique
+          - not null
+
+  - name: silver_layer_pokemon__moves
+    description: all pokemon moves
+

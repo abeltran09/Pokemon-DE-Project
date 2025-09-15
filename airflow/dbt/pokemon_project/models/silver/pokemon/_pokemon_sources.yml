@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: bronze
+    database: pokemon
+    schema: public
+    tables:
+      - name: pokemon_base
+        description: bronze level pokemon data
+      - name: pokemon_moves
+        description: bronze level pokemon moves data
