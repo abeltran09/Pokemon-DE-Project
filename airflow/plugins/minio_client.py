@@ -12,8 +12,7 @@ load_dotenv()
 MINIO_ENDPOINT = os.getenv("MINIO_ENDPOINT")
 MINIO_ACCESS_KEY = os.getenv("MINIO_ACCESS_KEY")
 MINIO_SECRET_KEY = os.getenv("MINIO_SECRET_KEY")
-MINIO_BUCKET = os.getenv("MINIO_BUCKET")
-POKEMON_API_URL = os.getenv("POKEMON_API_URL")
+
 
 
 def get_s3_client():
@@ -38,14 +37,14 @@ def ensure_bucket_exists(s3_client, bucket_name):
         else:
             raise e
 
-def store_to_minio(pokemon_data, pokemon_id):
+def store_to_minio(pokemon_data, file_name, bucket):
     s3 = get_s3_client()
-    ensure_bucket_exists(s3, MINIO_BUCKET)
-    key = f"pokemon_{pokemon_id}.json"
+    ensure_bucket_exists(s3, bucket)
+    key = f"{file_name}.json"
     s3.put_object(
-        Bucket=MINIO_BUCKET,
+        Bucket=bucket,
         Key=key,
         Body=json.dumps(pokemon_data),
         ContentType="application/json"
     )
-    print(f"Stored Pokémon {pokemon_id} to MinIO as {key}")
+    print(f"Stored {file_name} to MinIO as {key}")
