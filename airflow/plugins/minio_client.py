@@ -37,14 +37,13 @@ def ensure_bucket_exists(s3_client, bucket_name):
         else:
             raise e
 
-def store_to_minio(pokemon_data, file_name, bucket):
-    s3 = get_s3_client()
-    ensure_bucket_exists(s3, bucket)
-    key = f"{file_name}.json"
-    s3.put_object(
+
+def store_to_minio(s3_client, pokemon_data, key, bucket):
+    ensure_bucket_exists(s3_client, bucket)
+    s3_client.put_object(
         Bucket=bucket,
         Key=key,
-        Body=json.dumps(pokemon_data),
+        Body=pokemon_data,
         ContentType="application/json"
     )
-    print(f"Stored {file_name} to MinIO as {key}")
+    print(f"Stored {key} to MinIO as {key}")

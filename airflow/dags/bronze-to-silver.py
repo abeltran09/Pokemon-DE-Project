@@ -193,7 +193,7 @@ default_args = {
 }
 
 dag = DAG(
-    dag_id="bronze_to_silver_dag",
+    dag_id="bronze_to_silver_dag_deprecated",
     default_args=default_args,
     catchup=False,
     schedule_interval=None
